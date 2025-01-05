@@ -1,0 +1,277 @@
+/* Import the Acumin-BdPro font */
+@font-face {
+    font-family: 'AcuminBdPro';
+    src: url('assets/fonts/Acumin-BdPro.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Apply the font globally */
+  body {
+    margin: 0;
+    font-family: 'AcuminBdPro', sans-serif; /* Fallback to sans-serif if the font fails to load */
+    background-color: #121212; /* Dark theme */
+    color: white;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+  
+  #hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Stack logo and arrow vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    color: white;
+  }
+  
+  .logo-container img {
+    width: 25%; /* Adjusted size for larger default display */
+    max-width: 700px; /* Prevent it from becoming too large on wide screens */
+    min-width: 950px; /* Ensure visibility on smaller screens */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 2;
+  }
+  
+/* Wave Section */
+#waveSection {
+    position: relative;
+    width: 100%;
+    height: 1000px; /* Tall section to require scrolling */
+    background-color: #121212; /* Dark theme to match the rest of the site */
+    overflow: hidden; /* Prevent sine wave overflow */
+  }
+  
+  #sineWave {
+    position: absolute;
+    bottom: 0; /* Align the sine wave with the bottom of the section */
+    left: 0;
+    width: 100%;
+    height: 200px; /* Height of the sine wave canvas */
+    z-index: 1;
+    opacity: 0.8; /* Subtle transparency */
+  }
+  
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 20px; /* Adjust spacing above the navbar */
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Stack contents vertically if needed */
+    justify-content: center; /* Center all contents horizontally */
+    align-items: center; /* Center all contents vertically */
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0); /* Slightly opaque black background for visibility */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0); /* Add a subtle shadow */
+    z-index: 10;
+    box-sizing: border-box; /* Include padding in total width */
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 10px; /* Add spacing between brand and links */
+    text-align: center;
+  }
+  
+  .navbar-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center; /* Center the links */
+  }
+  
+  .navbar-links li {
+    margin: 0 15px; /* Add equal horizontal spacing between items */
+  }
+  
+  .navbar-links a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-links a:hover {
+    color: #007bff; /* Bright cyan hover color */
+  }
+  
+  .navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .navbar-links {
+      display: none;
+      flex-direction: column; /* Stack links vertically */
+      position: absolute;
+      top: 70px; /* Ensure the dropdown starts below the navbar */
+      right: 20px;
+      background: rgba(0, 0, 0, 0.9);
+      border-radius: 5px;
+      padding: 10px 20px;
+    }
+  
+    .navbar-links.active {
+      display: flex;
+    }
+  
+    .navbar-toggle {
+      display: block;
+    }
+  }
+  
+  /* Add Spacing Above the Navbar */
+  body {
+    margin-top: 20px; /* Adjust this value as needed */
+  }
+  
+
+/* About Section */
+#aboutSection {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    padding: 60px 20px; /* Add spacing inside the section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center the content horizontally */
+    background-color: #121212; /* Match the dark theme */
+    color: white; /* Text color */
+    text-align: center; /* Center the text alignment */
+  }
+  
+  #aboutSection h1 {
+    font-size: 2.5rem; /* Larger font for the slogan */
+    font-weight: bold;
+    margin-bottom: 20px; /* Add space below the heading */
+    letter-spacing: 0.2em; /* Slightly space out letters */
+    text-transform: uppercase; /* Make the heading all caps */
+    max-width: 800px; /* Restrict the width of the text */
+  }
+  
+  #aboutSection p {
+    font-size: 1.1rem; /* Slightly larger font for paragraphs */
+    margin-bottom: 20px; /* Add space between paragraphs */
+    color: rgb(255, 255, 255); /* Lighter color for better contrast */
+    max-width: 800px; /* Restrict the width of the text */
+    line-height: 1.8; /* Improve readability */
+  }
+  
+  
+
+
+.scroll-arrow {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent; /* Triangle sides */
+    border-right: 15px solid transparent;
+    border-top: 20px solid white; /* Triangle color */
+    animation: scrollDown 1.5s ease-in-out infinite; /* Add animation */
+    margin-top: 20px;
+}
+
+/* Arrow Animation */
+@keyframes scrollDown {
+    0% {
+        transform: translateY(0); /* Original position */
+    }
+    50% {
+        transform: translateY(10px); /* Move down slightly */
+    }
+    100% {
+        transform: translateY(0); /* Return to original position */
+    }
+}
+
+/* Add Scroll Behavior */
+html, body {
+    scroll-behavior: smooth; /* Smooth scrolling */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Footer Styling */
+.footer {
+  background-color: #121212; /* Match the site's dark theme */
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-logo h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+}
+
+.footer-links li {
+  display: inline;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #007bff; /* Highlight on hover */
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social a {
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #007bff; /* Highlight social icons on hover */
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-bottom p {
+  margin: 0;
+}
